@@ -1,29 +1,46 @@
-#include<stdio.h>
-#include<unistd.h>
-#include<sys/types.h>
-#include<sys/wait.h>
-int main(){
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+
+int main() {
     pid_t pid;
-    pid=vfork();
-    if(pid==-1)
-    {
+    // fork a child process using vfork()
+    pid = vfork();
+    if (pid == -1) {
+        // forking failed
+        perror("vfork");
         return 1;
-    
-    }else if(pid==0){
-        printf("Child process:hello,i'm child!\n");
-        printf("Child process:my PID is %d\n",getpid());
-        printf("child process:My parent's PID is%d\n",getppid());
-        _exit(0);
-    }else {
-        printf("Parent process:hello,i'm parent!\n");
-        printf("parent process:my PID is %d\n",getpid());
-        printf("parent process:My child's PID is%d\n",pid);
+    } else if (pid == 0) {
+        // child process
+        printf("Child process: Hello, i'm the child!\n");
+        printf("Child process: My PID is %d\n", getpid());
+        printf("Child process: My parent's PID is %d\n", getppid());
+        // Terminate the child process
+        exit(0);
+    } else {
+        // Parent process 
+        printf("Parent process: Hello, I'm the parent!\n");
+        printf("Parent process: My PID is %d\n", getpid());
+        printf("Parent process: My parent's PID is %d\n", pid);
+        // Wait for the child process to terminate
         int status;
-        waitpid(pid,&status,0);
-        if(WIFEXITED(status)){
-            printf("parent process:Child process terminated normally.\n");
-        }else{
-            printf("Parent process:Child process terminated abnormally.\n");
+        waitpid(pid, &status, 0);
+        if(WIFEXITED(status)) {
+            printf("Parent process: Child process terminated normally.\n");
+        } else {
+            printf("Parent process: Child process terminated abnormally.\n");
         }
     }
+    return 1;
 }
+/**
+     * 
+     * Child process: Hello, i'm the child!
+    Child process: My PID is 17680
+    Child process: My parent's PID is 17679
+    Parent process: Hello, I'm the parent!
+    Parent process: My PID is 17679
+    Parent process: My parent's PID is 17680
+    Parent process: Child process terminated normally.
+    */

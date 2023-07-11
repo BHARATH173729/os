@@ -2,15 +2,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-int main() {
-    /**
-    This is the parent process with PID: 12074
-    Child process PID: 12082
-    This is the child process with PID: 12082
-    Parent process PID: 12074
-    README.md  process  process.c
-    Child process exited with status: 0
-    */
+int main() { 
     pid_t pid;
     int status;
     pid = fork();
@@ -32,3 +24,11 @@ int main() {
         return 0;
     }
 }
+/**
+    This is the parent process with PID: 12074
+    Child process PID: 12082
+    This is the child process with PID: 12082
+    Parent process PID: 12074
+    README.md  process  process.c
+    Child process exited with status: 0
+    */

@@ -28,26 +28,6 @@ void consumer() {
 }
 
 void main() {
-    /*
-    1. Producer
-    2. consumer
-    3. Exit
-    Enter your choice: 1
-
-    Producer produces the item: 1
-    Enter your choice: 1
-
-    Producer produces the item: 2
-    Enter your choice: 2
-
-    Consumer consumes the item: 2
-    Enter your choice: 2
-
-    Consumer consumes the item: 1
-    Enter your choice: 2
-    Buffer is empty.
-    Enter your choice: 3
-*/
     int n;
     void producer();
     void consumer();
@@ -69,3 +49,23 @@ void main() {
         }
     }
 }
+    /*
+    1. Producer
+    2. consumer
+    3. Exit
+    Enter your choice: 1
+
+    Producer produces the item: 1
+    Enter your choice: 1
+
+    Producer produces the item: 2
+    Enter your choice: 2
+
+    Consumer consumes the item: 2
+    Enter your choice: 2
+
+    Consumer consumes the item: 1
+    Enter your choice: 2
+    Buffer is empty.
+    Enter your choice: 3
+*/

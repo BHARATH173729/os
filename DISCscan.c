@@ -81,6 +81,7 @@ int main()
     }
     printf("\nTotal head movement is %d\n",totalheadmovement);
     return 0;
+}    
    /*
 Enter the no of requests:
 7 
@@ -104,4 +105,3 @@ Sequence of request access:
 Total head movement is 332
    */
     
-}

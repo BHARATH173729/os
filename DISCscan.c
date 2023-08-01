@@ -103,5 +103,26 @@ Enter the head movement direction for high 1 and for low 0
 Sequence of request access:
 82 140 170 190 43 24 16 
 Total head movement is 332
+
+
+Enter the no of requests:
+7
+Enter the request sequence
+82
+120
+43
+140
+24
+16
+190
+Enter the initial head position
+50
+Enter the total disk size
+200
+Enter the head movement direction for high 1 and for low 0
+1
+Sequence of request access:
+82 120 140 190 43 24 16 
+Total head movement is 332
    */
     
